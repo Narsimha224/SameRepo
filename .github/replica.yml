@@ -1,1 +1,23 @@
+name: replica
+
+on: 
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  runs_on: ubuntu_latest
+  build:
+    steps:
+      - name: installing node.js
+        uses: actions/setup-node@v4
+        with:
+         - node-version: "18"
+     - name: install dependencies
+       run: npm install
+     - name: Run tests
+       run: npm tests
+
+     - name: Build
+       run: npm run build
+
 
